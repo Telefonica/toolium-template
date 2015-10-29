@@ -1,97 +1,36 @@
-Toolium template
+Toolium Template
 ================
 
-Base project to start using toolium for your testing automation projects
+Base project to start using `Toolium <https://github.com/Telefonica/toolium>`_ for your testing automation projects
+(web, Android or iOS).
 
-Requirements
-------------
+Getting Started
+---------------
 
-Python 2.7.10 (http://www.python.org)
+The requirements to install Toolium are `Python 2.7 <http://www.python.org>`_ and
+`pip <https://pypi.python.org/pypi/pip>`_. If you use Python 2.7.9+, you don't need to install pip separately.
 
-Installation
-------------
+Clone `toolium-template <https://github.com/Telefonica/toolium-template>`_ repository and install requirements. It's
+highly recommendable to use a virtualenv.
 
-Configure a virtual environment with the required packages:
+.. code:: console
 
-::
+    $ git clone git@github.com:Telefonica/toolium-template.git
+    $ pip install -r requirements.txt
 
-    virtualenv ENV
-    source ENV/bin/activate
-    pip install -r requirements.txt
-
-The following packages will be installed:
-
-- toolium (https://github.com/Telefonica/toolium)
-- requests (http://docs.python-requests.org)
-- selenium (http://docs.seleniumhq.org/)
-- Appium-Python-Client (https://github.com/appium/python-client)
-- nose (https://pypi.python.org/pypi/nose/)
-- lettuce (http://lettuce.it) *not installed by default, see requirements.txt*
-
-Running tests
+Running Tests
 -------------
 
-Run all tests with:
-::
+By default, example tests are configured to run in firefox locally, so firefox must be installed in your machine.
 
-    nosetests tests
+To run all tests:
 
-Run a singular test with:
-::
+.. code:: console
 
-    nosetests tests/test_login.py:Login.test_wrong_login
+    $ nosetests tests
 
-Browser configuration
----------------------
+To run a single test:
 
-Configure browser property in [Browser] section of properties.cfg file
+.. code:: console
 
-Valid values are: firefox, chrome, iexplore, edge, safari, opera, phantomjs,
-iphone, android
-::
-
-    browser: firefox
-
-Firefox:
-
-- No extra configuration is needed
-
-Chrome:
-
-- Download chromedriver\_*.zip from
-  http://chromedriver.storage.googleapis.com/index.html
-- Unzip file and save the executable in a local folder
-- Configure driver path in [Browser] section of properties.cfg file
-::
-
-    chromedriver_path: C:\Drivers\chromedriver.exe
-
-Explorer:
-
-- Download IEDriverServer\_Win32\_*.zip from
-  http://selenium-release.storage.googleapis.com/index.html
-- Use always Win32 version, because x64 version is very slow
-- Unzip file and save the executable in a local folder
-- Configure driver path in [Browser] section of properties.cfg file
-::
-
-    explorerdriver_path: C:\Drivers\IEDriverServer.exe
-
-Edge:
-
-- Download MicrosoftWebDriver.msi from
-  https://www.microsoft.com/en-us/download/details.aspx?id=48212
-- Install MicrosoftWebDriver.msi
-- Configure driver path in [Browser] section of properties.cfg file
-::
-
-    edgedriver_path: C:\Drivers\MicrosoftWebDriver.exe
-
-PhantomJS:
-
-- Download phantomjs-*.zip from http://phantomjs.org/download.html
-- Unzip file and save the executable in a local folder
-- Configure driver path in [Browser] section of properties.cfg file
-::
-
-    phantomdriver_path: C:\Drivers\phantomjs.exe
+    $ nosetests tests/test_login.py:Login.test_successful_login_logout
