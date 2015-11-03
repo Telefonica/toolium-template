@@ -28,12 +28,12 @@ class Login(SeleniumTestCase):
 
         # Login and check welcome message
         secure_area = LoginPageObject().open().login(user)
-        self.assertEqual(expected_login_message, secure_area.message.get_message())
+        self.assertIn(expected_login_message, secure_area.message.get_message())
         self.assertFullScreenshot('login_secure_area')
 
         # Logout and check logout message
         login_page = secure_area.logout()
-        self.assertEqual(expected_logout_message, login_page.message.get_message())
+        self.assertIn(expected_logout_message, login_page.message.get_message())
         self.assertFullScreenshot('login_logout')
 
     def test_wrong_login(self):
@@ -43,5 +43,5 @@ class Login(SeleniumTestCase):
         # Try to login and check error message
         login_page = LoginPageObject()
         login_page.open().login(user)
-        self.assertEqual(expected_message, login_page.message.get_message())
+        self.assertIn(expected_message, login_page.message.get_message())
         self.assertFullScreenshot('login_wrong_full')
