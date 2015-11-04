@@ -7,7 +7,7 @@ Base project to start using `Toolium <https://github.com/Telefonica/toolium>`_ f
 Getting Started
 ---------------
 
-The requirements to install Toolium are `Python 2.7 <http://www.python.org>`_ and
+The requirements to install Toolium are `Python 2.7 or 3.3+ <http://www.python.org>`_ and
 `pip <https://pypi.python.org/pypi/pip>`_. If you use Python 2.7.9+, you don't need to install pip separately.
 
 Clone `toolium-template <https://github.com/Telefonica/toolium-template>`_ repository and install requirements. It's
