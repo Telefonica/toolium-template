@@ -16,6 +16,7 @@ highly recommendable to use a virtualenv.
 .. code:: console
 
     $ git clone git@github.com:Telefonica/toolium-template.git
+    $ cd toolium-template
     $ pip install -r requirements.txt
 
 Running Tests
@@ -34,3 +35,32 @@ To run a single test:
 .. code:: console
 
     $ nosetests tests/test_login.py:Login.test_successful_login_logout
+
+Customizing Template
+--------------------
+
+Before creating your tests, you should personalize the template:
+
+1. Clone toolium-template repository
+
+.. code:: console
+
+    $ git clone git@github.com:Telefonica/toolium-template.git <your_repository_name>
+
+2. Compact all template commits in one preserving the author
+
+.. code:: console
+
+    $ cd <your_repository_name>
+    $ git reset $(git commit-tree HEAD^{tree} -m "Toolium template")
+    $ git -c user.name="Ruben Gonzalez Alonso" -c user.email=rgonalo@gmail.com commit --amend --reset-author --no-edit
+
+3. Create a new clean repository in your github user/organization
+
+4. Replace origin and push changes yo your repository
+
+.. code:: console
+
+    $ git remote rm origin
+    $ git remote add origin git@github.com:<your_github_organization_or_user>/<your_repository_name>.git
+    $ git push -u origin master
