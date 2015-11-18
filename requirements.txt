@@ -1,3 +1,2 @@
 toolium
 nose
-needle                # visual tests
