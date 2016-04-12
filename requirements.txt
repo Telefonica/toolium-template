@@ -1,2 +1,4 @@
 toolium
 nose
+needle      # visual testing
+#behave      # behave tests
