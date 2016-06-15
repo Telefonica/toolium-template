@@ -20,22 +20,23 @@ from selenium.webdriver.common.by import By
 
 from toolium.pageobjects.page_object import PageObject
 from toolium.pageelements import *
-from toolium_template.pageobjects.message import MessagePageObject
-from toolium_template.pageobjects.secure_area import SecureAreaPageObject
+from pageobjects.message import MessagePageObject
+from pageobjects.secure_area import SecureAreaPageObject
 
 
 class LoginPageObject(PageObject):
-    username = InputText(By.ID, 'username')
-    password = InputText(By.ID, 'password')
-    login_button = Button(By.XPATH, "//form[@id='login']/button")
-    message = MessagePageObject()
+    def init_page_elements(self):
+        self.username = InputText(By.ID, 'username')
+        self.password = InputText(By.ID, 'password')
+        self.login_button = Button(By.XPATH, "//form[@id='login']/button")
+        self.message = MessagePageObject()
 
     def open(self):
         """ Open login url in browser
 
         :returns: this page object instance
         """
-        self.driver.get(self.config.get('Common', 'url'))
+        self.driver.get('{}/login'.format(self.config.get('Test', 'url')))
         return self
 
     def wait_until_loaded(self):
