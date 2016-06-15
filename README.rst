@@ -4,6 +4,9 @@ Toolium Template
 Base project to start using `Toolium <https://github.com/Telefonica/toolium>`_ for your testing automation projects
 (web, Android or iOS).
 
+The toolium-template example test is a behave web test. There are more examples of web, Android or iOS tests (with or
+without using behave) in `toolium-examples <https://github.com/Telefonica/toolium-examples>`_.
+
 Getting Started
 ---------------
 
@@ -28,13 +31,13 @@ To run all tests:
 
 .. code:: console
 
-    $ nosetests tests
+    $ behave
 
 To run a single test:
 
 .. code:: console
 
-    $ nosetests tests/test_login.py:Login.test_successful_login_logout
+    $ behave -n 'successful login'
 
 Customizing Template
 --------------------
