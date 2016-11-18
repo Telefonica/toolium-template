@@ -1,5 +1,5 @@
 toolium
 behave         # behave tests
 behave-pytest  # pytest assertions in behave tests
-needle         # visual testing
+git+https://github.com/bfirsh/needle.git@09f32a5d#egg=needle  # visual testing
 Pillow==3.2.0  # visual testing, 3.3.0 has an installation issue
