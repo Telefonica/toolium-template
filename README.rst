@@ -18,7 +18,7 @@ highly recommendable to use a virtualenv.
 
 .. code:: console
 
-    $ git clone git@github.com:Telefonica/toolium-template.git
+    $ git clone https://github.com/Telefonica/toolium-template.git
     $ cd toolium-template
     $ pip install -r requirements.txt
 
@@ -30,7 +30,7 @@ chrome driver must be downloaded and configured:
 
 - Download `chromedriver_*.zip <http://chromedriver.storage.googleapis.com/index.html>`_
 - Unzip file and save the executable in a local folder
-- Configure driver path in *[Driver]* section in properties.cfg file ::
+- Configure driver path in *[Driver]* section in `conf/properties.cfg` file ::
 
     [Driver]
     chrome_driver_path: C:\Drivers\chromedriver.exe
