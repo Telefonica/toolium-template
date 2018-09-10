@@ -1,4 +1,5 @@
 toolium
 behave         # behave tests
 behave-pytest  # pytest assertions in behave tests
+pytest==2.9.2  # behave-pytest is not compatible with pytest 3
 needle==0.4.1  # visual testing
