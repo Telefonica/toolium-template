@@ -10,9 +10,6 @@ without using behave) in `toolium-examples <https://github.com/Telefonica/tooliu
 Getting Started
 ---------------
 
-The requirements to install Toolium are `Python 2.7 or 3.3+ <http://www.python.org>`_ and
-`pip <https://pypi.python.org/pypi/pip>`_. If you use Python 2.7.9+, you don't need to install pip separately.
-
 Clone `toolium-template <https://github.com/Telefonica/toolium-template>`_ repository and install requirements. It's
 highly recommendable to use a virtualenv.
 
