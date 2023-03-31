@@ -22,15 +22,8 @@ highly recommendable to use a virtualenv.
 Running Tests
 -------------
 
-By default, example tests are configured to run in chrome locally, so chrome must be installed in your machine and the
-chrome driver must be downloaded and configured:
-
-- Download `chromedriver_*.zip <http://chromedriver.storage.googleapis.com/index.html>`_
-- Unzip file and save the executable in a local folder
-- Configure driver path in *[Driver]* section in `conf/properties.cfg` file ::
-
-    [Driver]
-    chrome_driver_path: C:\Drivers\chromedriver.exe
+By default, web tests are configured to run in chrome locally, so chrome must be installed in your machine.
+Selenium 4 will download chrome driver automatically when tests are executed.
 
 To run all tests:
 
