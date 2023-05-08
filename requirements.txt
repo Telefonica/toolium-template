@@ -1,2 +1,2 @@
-toolium~=3.0.0
+toolium~=3.0
 behave==1.2.6  # behave tests
