@@ -1,0 +1,69 @@
+{
+    // Anadido para (formatting and linting) la configuracion de autopep9 y pylint
+    // Anadido para la configuracion de Ruff
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "autopep8.args": ["--max-line-length=120"],
+    "pylint.args": ["--max-line-length=120"],
+
+    // Anadido para configuracion Cucumber
+    // "cucumberautocomplete.steps": [
+    //     "acceptance/features/e2e/**/*.py",
+    //     "acceptance/common/steps/**/*.py",
+    //     "venv/lib/python3.8/site-packages/toolium_telefonica/behave/steps/**/*.py"
+    //   ],
+    "cucumberautocomplete.steps": [
+      "features/**/*.py",
+      "steps/**/*.py"
+    ], 
+      "cucumberautocomplete.customParameters": [
+        {
+          "parameter": "(u'",
+          "value": "('"
+        }
+      ],
+      //"cucumberautocomplete.syncfeatures": "acceptance/features/**/*.feature",
+      "cucumberautocomplete.syncfeatures": "features/**/*.feature",
+      "cucumberautocomplete.gherkinDefinitionPart": "@(given|when|then|step)\\(",
+      "cucumberautocomplete.strictGherkinCompletion": false,
+      "cucumberautocomplete.strictGherkinValidation": false,
+      "cucumberautocomplete.onTypeFormat": true,
+
+    // Anadido para la configuracion de Gherkiner
+    "gherkiner.consecutiveBlankLinesToOne": true,
+    "gherkiner.padding.symbol": "space",
+    "gherkiner.padding.table": 10,
+    "gherkiner.formatOnSave": true,
+    "gherkiner.paddings": [{
+        "keyword": "Feature",
+        "padding": 0
+        },{
+        "keyword": "Scenario Outline",
+        "padding": 2
+        },{
+        "keyword": "Scenario",
+        "padding": 2
+        },{
+        "keyword": "Given",
+        "padding": 4
+        },{
+        "keyword": "When",
+        "padding": 5
+        },{
+        "keyword": "Then",
+        "padding": 5
+        },{
+        "keyword": "And",
+        "padding": 6
+        },{
+        "keyword": "Actions",
+        "padding": 2
+        },{
+        "keyword": "Examples",
+        "padding": 4
+        }]
+    
+}

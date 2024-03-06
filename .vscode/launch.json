@@ -1,0 +1,99 @@
+{
+    /*
+        "version": "0.2.0",
+        "configurations": [
+        {
+        CONFIG 1
+        },
+        {
+        CONFIG 2
+        },
+        ...
+        {
+        CONFIG N
+        }
+
+        Donde <ARGS> se refiere a los argumentos del comportamiento, como etiquetas, datos del usuario y la característica o características a ejecutar
+            "-t",
+            "@automático",
+
+            "-D",
+            "toolium_env=ios",
+
+            "características/test_features/test_feature"
+    
+        // TEMPLATE
+        "name": "<NAME>",
+        "type": "python",
+        "request": "launch",
+        "cwd": "${workspaceFolder}/acceptance",
+        "module": "behave",
+        "env": {
+            "PYTHONPATH": "${workspaceFolder}"
+        },
+        "args": [
+            <ARGS>
+        ],
+        "stopOnEntry": false,
+        "justMyCode": false
+    */
+
+    "version": "0.2.0",
+    "configurations": [
+        // Basic launchers
+        // Launcher to execute a single scenario selecting scenario name and pressing F5:
+        {
+            "name": "successful login", //"name": "Scenario",
+            "type": "python",
+            "request": "launch",
+            "cwd": "/Users/juliocandelarioelias/Documents/workspace/toolium-template", //"cwd": "${workspaceFolder}/acceptance",
+            "module": "behave",
+            "env": {
+                "PYTHONPATH": "/Users/juliocandelarioelias/Documents/workspace/toolium-template", //"PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": [
+                //"${file}",
+                "-n",
+                "successful login" //"${selectedText}"
+            ],
+            "stopOnEntry": false,
+            "justMyCode": false // Por defecto viene a true, se pone a falase para poder depurar en las librerías externas a mi proyecto como las de toolium-telefonica
+        },
+
+        // Launcher to execute a single scenario selecting scenario Jira ID and pressing F5:
+        {
+         "name": "Scenario (Jira ID)",
+         "type": "python",
+         "request": "launch",
+         "cwd": "${workspaceFolder}/acceptance",
+         "module": "behave",
+         "env": {
+           "PYTHONPATH": "${workspaceFolder}"
+         },
+         "args": [
+           "${file}",
+           "-t",
+           "@jira.${selectedText}"
+         ],
+         "stopOnEntry": false,
+         "justMyCode": false
+        },
+
+        // Launcher to execute all scenarios in current feature:
+        {
+        "name": "Feature",
+        "type": "python",
+        "request": "launch",
+        "cwd": "${workspaceFolder}/acceptance",
+        "module": "behave",
+        "env": {
+            "PYTHONPATH": "${workspaceFolder}"
+        },
+        "args": [
+            "${file}"
+        ],
+        "stopOnEntry": false,
+        "justMyCode": false
+        }
+    ]
+  }
