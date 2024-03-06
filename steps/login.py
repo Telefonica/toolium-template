@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-u"""
+"""
 Copyright 2015 Telefónica Investigación y Desarrollo, S.A.U.
 This file is part of Toolium.
 
@@ -21,19 +21,24 @@ from behave import given, when, then
 from pageobjects.login import LoginPageObject
 
 
-@given('the home page is open')
+@given("the home page is open")
 def step_impl(context):
     context.current_page = LoginPageObject()
+    # crea vble current_page, un método instancia la clase LoginPageObject y una vez abierta ya se queda declarada (estilo factoria)
+    # La vable ya está instanciada y creada y podemos navegar desde auqi al metodo open de la clase LoginPageObject()
     context.current_page.open()
 
 
 @when('the user logs in with username "{username}" and password "{password}"')
 def step_impl(context, username, password):
-    user = {'username': username, 'password': password}
+    user = {"username": username, "password": password}
+    # limitacion de VSCode, solo puedo acceder a los metodos de la clase LoginPageObject de la vble current_page desde el lugar donde instancie esa clase, desde el step anterior
+    # Si se quiere poder acceder al metodo login hayq ue volver a instanciar la vble current_page con esa clase: context.current_page = LoginPageObject()
+    context.current_page = LoginPageObject()
     context.current_page = context.current_page.login(user)
 
 
-@when('the user logs out')
+@when("the user logs out")
 def step_impl(context):
     context.current_page = context.current_page.logout()
 
