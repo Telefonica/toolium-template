@@ -6,6 +6,9 @@
 target
 .pydevproject
 
+# VSCode IDE
+.vscode
+
 # Packages
 *.egg
 *.egg-info
@@ -76,6 +79,10 @@ Docs
 .coverage
 tmp
 output
+.eggs
+.tox
+.env
+.autoenv
 
 # Database
 *.sqlite3
