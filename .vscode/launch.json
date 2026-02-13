@@ -10,7 +10,7 @@
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
       },
-      "envFile": "${workspaceFolder}/.vscode/.env",
+      "envFile": "${workspaceFolder}/.env",
       "args": [
         "${file}",
         "-n",
