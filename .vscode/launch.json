@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Scenario (by name)",
+      "type": "debugpy",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "module": "behave",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "envFile": "${workspaceFolder}/.env",
+      "args": [
+        "${file}",
+        "-n",
+        "${selectedText}"
+      ],
+      "stopOnEntry": false,
+      "justMyCode": false
+    }
+  ]
+}
