@@ -1,21 +1,17 @@
 name: build
 
-on: [push, pull_request]
+on:
+  pull_request:
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.13']
-      fail-fast: false
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+    - uses: actions/checkout@v6
+    - name: Set up python 3.11
+      uses: actions/setup-python@v6
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: '3.11'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -25,3 +21,39 @@ jobs:
       run: |
         ruff check .
         ruff format --check .
+
+  behave-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11', '3.12', '3.13']
+      fail-fast: false
+    steps:
+    - uses: actions/checkout@v6
+    - name: Set up python ${{ matrix.python-version }}
+      uses: actions/setup-python@v6
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -r requirements_dev.txt
+    - name: Run tests
+      run: |
+        behave features/ --junit --junit-directory output/reports -D Driver_headless=True
+      continue-on-error: true
+    - name: Upload output folder
+      uses: actions/upload-artifact@v7
+      if: always()
+      with:
+        name: behave-tests-output-${{ matrix.python-version }}
+        path: output
+    - name: Publish test results
+      uses: dorny/test-reporter@v3
+      if: always()
+      with:
+        name: behave tests results (${{ matrix.python-version }})
+        path: output/reports/*.xml
+        reporter: java-junit
+        fail-on-error: true
